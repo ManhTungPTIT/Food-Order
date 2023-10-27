@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\LogOut.js",
+      "PackagePath": "staticwebassets\\js\\LogOut.js"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\Register.js",
       "PackagePath": "staticwebassets\\js\\Register.js"
     },

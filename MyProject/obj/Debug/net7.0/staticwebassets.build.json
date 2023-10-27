@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sG9Zl23+oElEC25Yypa8Cc/bNBlav0QNmdXW8mNYU5k=",
+  "Hash": "NqLkl2lVsaCl53/PrACWWgKJAU4zu5qlCaOxBH8unrQ=",
   "Source": "MyProject",
   "BasePath": "_content/MyProject",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\LogOut.js",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "js/LogOut.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\LogOut.js"
     },
     {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\Register.js",

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using MyProject.AppService.IService;
 using MyProject.Models.Models;
 
@@ -37,17 +39,18 @@ namespace MyProject.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> Register(string? userName, string? password)
+        public async Task<IActionResult> Register(string? userName, string? password, string? phone, DateTime? birthday)
+        
         {
             
-            if (userName != null && password != null )
+            if (userName != null && password != null && phone !=  null && birthday != null)
             {
                 var user = new User
                 {
                     UserName = userName,
                     Password = password,
-                    Phone = "01234567",
-                    Birthday = DateTime.Now,
+                    Phone = phone,
+                    Birthday = birthday,
                     CreatedOn = DateTime.Now,
                 };
                 var check = await _authenService.Register(user);
@@ -63,5 +66,13 @@ namespace MyProject.Controllers
             }
             return View();
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
+            return View("Login");
+        }
+
     }
 }
