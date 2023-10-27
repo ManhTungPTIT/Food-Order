@@ -1,0 +1,46 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+<ul class="navbar-nav ms-2 d-flex justify-content-center align-items-center flex-column ms-2" style="width: 100%; padding: 10% 13% 10% 0;">
+@if (SignInManager.IsSignedIn(User))
+{
+    <i class="fa-regular fa-circle-user" style="cursor: auto; font-size: 2.5rem"></i>
+    <li class="nav-item">
+        <span class="nav-link text-dark" style="font-size: 13px; margin-left: 18px;">@User.Identity!.Name</span>
+    </li>
+    <li class="nav-item">
+        <div class="form-inline" style="background-color: #fea628; width: 120px; justify-content: center; border-radius: 20px; border: none;">
+            <button type="submit" class="nav-link btn btn-link text-dark" id="LogOut" style="width: 100px; border: none; height: 3rem; text-align: center">
+                Đăng xuất
+            </button>
+
+            <!-- The Modal -->
+            <div id="MyModal" class="modalLogOut">
+                <div class="modal-contentLogOut">
+                    <div class="modal-headerLogOut">
+                        <h3>Xác nhận đăng xuất</h3>
+                        <span class="btn-close" id="Close" style="color: red"></span>
+                    </div>
+                    <div class="modal-bodyLogOut">
+                        <p>Bạn có muốn đăng xuất không</p>
+
+                    </div>
+                    <div class="modal-footerLogOut">
+                        <button id="confirmLogOut">Có</button>
+                        <button id="cancelLogOut">Không</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link dark-text" asp-controller="Authen" asp-action="Login">
+            Login
+        </a>
+    </li>
+}
+
+</ul>

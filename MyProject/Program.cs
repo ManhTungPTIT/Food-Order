@@ -29,7 +29,13 @@ namespace MyProject
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-
+            
+            builder.Services.AddDefaultIdentity<IdentityUser>(
+                    options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+                
             builder.Services.AddRazorPages();
             builder.Services.Configure<IdentityOptions>(options =>
             {

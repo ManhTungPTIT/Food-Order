@@ -12,3 +12,6 @@ D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\obj\Debug\net7.0\refint\
 D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\obj\Debug\net7.0\MyProject.DomainService.pdb
 D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\obj\Debug\net7.0\MyProject.DomainService.genruntimeconfig.cache
 D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\obj\Debug\net7.0\ref\MyProject.DomainService.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\bin\Debug\net7.0\MyProject.Models.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\bin\Debug\net7.0\MyProject.Models.pdb
+D:\Study\LTHDT\ProjectTotNghiep\MyProject.DomainService\obj\Debug\net7.0\MyProject.DomainService.csproj.CopyComplete

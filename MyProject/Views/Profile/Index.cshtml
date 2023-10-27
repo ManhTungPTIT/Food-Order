@@ -1,0 +1,47 @@
+@using MyProject.Models.Models
+@model MyProject.Models.Models.User;
+
+@{
+    Layout = "_Layout";
+    var user = ViewBag.GetUser as User;
+}
+
+<div class="container">
+    <div
+        class="row d-flex flex-direction-row justify-content-center align-items-center">
+        <div class="col-4" style="background-color: rgb(236, 121, 5)">
+            <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt=""
+                style="width: 100%; height: 100%"
+                class="rounded-circle"/>
+            <input type="file" class="form-control" accept="image/*"/>
+            <h5 class="text-center">@User.Identity?.Name</h5>
+        </div>
+        <div class="col-8">
+            <div class="card-body">
+                <h5 class="card-title">Infomation</h5>
+                <hr class="mt-0 mb-4"/>
+                <form asp-action="Index" asp-controller="Profile">
+                    <input
+                        type="date"
+                        class="form-control my-4"
+                        value="@user.Birthday"
+                        asp-for="Birthday"/>
+                    <input
+                        type="text"
+                        class="form-control my-4"
+                        value="@user.Address"
+                        asp-for="Address"/>
+                    <input
+                        type="text"
+                        class="form-control my-4"
+                        value="@user.Phone"
+                        asp-for="Phone"/>
+                    <button type="submit" class="btn-lg">Save</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -93,3 +93,8 @@ D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\MyProject.AppService.
 D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\MyProject.DomainService.pdb
 D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\MyProject.Infrastructure.pdb
 D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\MyProject.Models.pdb
+D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\Elasticsearch.Net.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject\bin\Debug\net7.0\Nest.dll
+D:\Study\LTHDT\ProjectTotNghiep\MyProject\obj\Debug\net7.0\MyProject.MvcApplicationPartsAssemblyInfo.cs

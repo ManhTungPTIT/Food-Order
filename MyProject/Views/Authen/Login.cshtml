@@ -1,5 +1,5 @@
 @page
-@model MyProject.Views.Authen.Login
+@model MyProject.Models.Models.User;
 
 @{
     Layout = "";
@@ -36,17 +36,17 @@
     </div>
 
     <div class="Main_login col-6">
-        <form >
+        <form asp-action="Login" asp-controller="Authen">
             <div class="Login">
                 <h1>Sign in</h1>
                 <div class="Login_text">
                     <div class="Text">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" placeholder="Email" id="email"/>
+                        <input type="text" placeholder="Email" id="email" name="UserName"/>
                     </div>
                     <div class="Text">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" placeholder="Password"/>
+                        <input type="password" id="password" placeholder="Password" name="Password"/>
                         <i class="fa-regular fa-eye" onclick="changePass()"></i>
                         <i class="fa-regular fa-eye-slash" onclick="changePass()"></i>
                     </div>
@@ -56,9 +56,9 @@
                     <label class="ms-2">Remenber</label>
                 </div>
                 <div class="Controller">
-                    <button class="fs-3">Login</button>
+                    <button type="submit" class="fs-3 my-3">Login</button>
                     <p class="mt-4">OR</p>
-                    <button class="fs-3" asp-action="Register" asp-controller="Authen">
+                    <button class="fs-3 my-3" asp-action="Register" asp-controller="Authen">
                         Resgister
                     </button>
                 </div>

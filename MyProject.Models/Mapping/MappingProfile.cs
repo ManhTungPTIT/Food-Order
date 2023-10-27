@@ -17,7 +17,7 @@ public class MappingProfile : Profile
         CreateMap<Order, OrderDto>();
         CreateMap<OrderProduct, OrderProductDto>();
         CreateMap<User, UserDto>()
-            .ForMember(dest => dest.Users,opt => opt.MapFrom(src => new UserDto{ UserId = src.UserId, UserName = src.UserName} ));
+            .ForMember(dest => dest.Users,opt => opt.MapFrom(src => new UserDto{ UserId = src.ID, UserName = src.UserName} ));
         // CreateMap<DepositHistory, DepositHistoryDto>()
         //     .ForMember(dest => dest.UserwalletId,
         //         opt => opt.MapFrom(src => src.UserWallet.Id));

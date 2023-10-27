@@ -1,15 +1,8 @@
 @page
-@model MyProject.Views.Authen.Register
+@model MyProject.Models.Models.User;
 
 @{
     Layout = "";
-}
-
-
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +16,7 @@
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/Register.css"/>
 </head>
 
@@ -38,17 +31,17 @@
     </div>
 
     <div class="Main_login col-6">
-        <form >
+        <form asp-action="Register" asp-controller="Authen">
             <div class="Login">
                 <h1 style="color: #fea628">Resgister</h1>
                 <div class="Login_text">
                     <div class="Text">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" placeholder="Email" id="email"/>
+                        <input type="text" placeholder="Email" id="username" name="userName"/>
                     </div>
                     <div class="Text">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" placeholder="Password"/>
+                        <input type="password" placeholder="Password" id="password" name="password"/>
                         <i class="fa-regular fa-eye" onclick="changePass()"></i>
                         <i class="fa-regular fa-eye-slash" onclick="changePass()"></i>
                     </div>
@@ -63,28 +56,20 @@
                     </div>
                     <span class="mess">Hãy nhập lại mật khẩu</span>
                     <div class="Info">
-                        <input class="shadow-none" type="date" placeholder="Day" id="address"/>
-                        <input class="shadow-none" type="text" placeholder="Phone" id="phone"/>
+                        <input class="shadow-none" type="text" placeholder="Phone" id="phone" name="phone"/>
+                        <input class="shadow-none" type="date" placeholder="Day" id="birthday" name="birthday"/>
                     </div>
                 </div>
                 <div class="Controller">
-                    <button class="fs-4">Resgister</button>
-                    <button class="fs-4" asp-action="Login" asp-controller="Authen">
-                        Login 
+                    <button id="register" type="submit" class="fs-4 my-3">Resgister</button>
+                    <button class="fs-4 my-3" asp-action="Login" asp-controller="Authen">
+                        Login
                     </button>
                 </div>
             </div>
         </form>
-        
-        <script>
-              function changePass() {
-                let password = document.getElementById("password");
-                password.type = password.type == "text" ? "password" : "text";
-              }
-              function change() {
-                let password = document.getElementById("confirm");
-                password.type = password.type == "text" ? "password" : "text";
-              }
+
+        <script src="/js/Register.js">
             </script>
 
     </div>

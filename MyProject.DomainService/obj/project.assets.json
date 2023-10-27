@@ -1292,6 +1292,24 @@
             "rid": "win"
           }
         }
+      },
+      "MyProject.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Autofac.Extensions.DependencyInjection": "7.0.1",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.10",
+          "Microsoft.EntityFrameworkCore": "7.0.10",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.10"
+        },
+        "compile": {
+          "bin/placeholder/MyProject.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyProject.Models.dll": {}
+        }
       }
     }
   },
@@ -3783,6 +3801,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MyProject.Models/1.0.0": {
+      "type": "project",
+      "path": "../MyProject.Models/MyProject.Models.csproj",
+      "msbuildProject": "../MyProject.Models/MyProject.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3794,7 +3817,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.10",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.10",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.10"
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.10",
+      "MyProject.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3823,7 +3847,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj": {
+              "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

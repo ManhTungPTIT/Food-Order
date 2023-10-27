@@ -27,7 +27,17 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.DomainService\\MyProject.DomainService.csproj": {
+                "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.DomainService\\MyProject.DomainService.csproj"
+              },
+              "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Infrastructure\\MyProject.Infrastructure.csproj": {
+                "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Infrastructure\\MyProject.Infrastructure.csproj"
+              },
+              "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj": {
+                "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -120,7 +130,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj": {
+                "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -214,6 +228,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.DomainService\\MyProject.DomainService.csproj": {
+                "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.DomainService\\MyProject.DomainService.csproj"
+              },
               "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj": {
                 "projectPath": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject.Models\\MyProject.Models.csproj"
               }
@@ -242,6 +259,10 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.10, )"
@@ -265,6 +286,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.5, )"
             }
           },
           "imports": [
