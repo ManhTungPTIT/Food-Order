@@ -1,0 +1,242 @@
+.product-grid {
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.centered-text {
+    font-size: 24px;
+    text-align: center;
+    color: rgb(236, 121, 5)
+}
+
+
+.container-button {
+    display: flex;
+    height: 35px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    flex-direction: row;
+
+}
+
+.edit-product {
+    flex: 1;
+    border-radius: 17.5px;
+    background: #9d9a9a;
+    height: 100%;
+    width: 100%;
+    margin-right: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-product {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.delete-product button {
+    background-color: #EC7905;
+    color: #fff;
+    border-radius: 17.5px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-product button:hover {
+    background-color: #ff0000;
+}
+
+.delete-product button:active {
+    background-color: #cc0000;
+}
+
+.icon {
+    font-size: 12px;
+}
+
+.edit-product a {
+    font-size: 14px;
+    color: white;
+}
+
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Category-container-create {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.Category-container {
+    height: 80px;
+    overflow-x: auto;
+    justify-content: center;
+}
+
+.Category {
+    display: flex;
+    height: 3rem;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.Category-item-create {
+    border: 1px dotted rgb(236, 121, 5);
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    margin-right: 5px;
+    margin-left: 10px;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    white-space: nowrap;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: rgb(236, 121, 5);
+}
+
+.Category-item {
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    margin-right: 10px;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    white-space: nowrap;
+    padding-right: 20px;
+    padding-left: 20px;
+    flex-wrap: wrap;
+    text-overflow: ellipsis;
+
+}
+
+.category-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    display: inline-block;
+}
+
+/*.category-name:hover {*/
+/*    white-space: normal; */
+/*    overflow: visible; */
+/*    text-overflow: clip; */
+/*}*/
+
+/*.product-name {*/
+/*    padding-left: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-top: 10px;*/
+/*    max-width: 100%;*/
+/*    white-space: nowrap;*/
+/*    overflow: hidden;*/
+/*    text-overflow: ellipsis;*/
+/*    font-size: 14px;*/
+/*}*/
+
+.pill-container {
+    display: inline-block;
+}
+
+.pill {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    line-height: 20px;
+}
+
+.pill-close {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+}
+
+.add-to-cart-button span .fa-shopping-cart {
+    color: gray;
+}
+
+
+.product-image-container{
+    min-height: 8vw;
+    max-height: 8vh;
+    overflow: hidden;
+}
+
+.product-item {
+    max-width: 210px;
+    min-width: 210px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+
+}
+
+.empty{
+    justify-items: center;
+}
+.List-item {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.page-item .pageBt{
+    background-color: white;
+    color: #0a53be;
+}
+.container{
+    margin-top: 20px;
+    display: flex;
+}
+.pageBtn{
+    background-color: white;
+    border: none;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 -1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+.activeBt{
+    background-color: #EC7905;
+    border-color: #EC7905;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+

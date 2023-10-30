@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NqLkl2lVsaCl53/PrACWWgKJAU4zu5qlCaOxBH8unrQ=",
+  "Hash": "0FRYzv7rtFEtwDJXB80FHS+gFuS4LupjG+z+Ue5t5js=",
   "Source": "MyProject",
   "BasePath": "_content/MyProject",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\MyProject.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Admin.css",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "css/Admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Admin.css"
     },
     {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Login.css",

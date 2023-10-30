@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MyProject.bundle.scp.css"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Admin.css",
+      "PackagePath": "staticwebassets\\css\\Admin.css"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\LogOut.css",
       "PackagePath": "staticwebassets\\css\\LogOut.css"
     },

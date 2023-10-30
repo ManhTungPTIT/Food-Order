@@ -17,13 +17,14 @@ namespace MyProject.Controllers
         
         public async Task<IActionResult> Login(string? UserName, string? Password)
         {
-            var user = new User
-            {
-                UserName = UserName,
-                Password = Password
-            };
+            
             if (UserName != null)
             {
+                var user = new User
+                {
+                    UserName = UserName,
+                    Password = Password
+                };
                 var check = await _authenService.Login(user);
                 if (check)
                 {

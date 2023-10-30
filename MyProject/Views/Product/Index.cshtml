@@ -1,0 +1,52 @@
+@page
+@model MyProject.Views.Product.Index
+@using MyProject.Models.Dtos
+@model List<MyProject.Models.Dtos.ProductDto>
+@{
+    Layout = "_Admin";
+    var categories = ViewBag.Categories as List<CategoryDto>;
+    var categoryId = ViewData["Category"] as int?;
+}
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav>
+        <link rel="stylesheet" href="/css/Product.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+
+    </nav>
+
+
+</head>
+
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div id="myAlert" class="alert alert-success alert-dismissible fade show" style="margin-left: 200px; margin-right: 200px">
+        @ViewBag.SuccessMessage
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<body>
+<div class="list-product-item d-flex flex-column justify-content-between overflow-auto" style="height: 85vh">
+    <div class="top-content">
+
+        <div class="List-item">
+            @await Html.PartialAsync("ListProduct", Model)
+
+        </div>
+    </div>
+    <div class="bottom-content">
+        
+    </div>
+</div>
+
+
+<script src="/js/product.js"></script>
+
+</body>

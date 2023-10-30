@@ -28,7 +28,9 @@
     <ProjectReference Include="..\MyProject.DomainService\MyProject.DomainService.csproj" />
     <ProjectReference Include="..\MyProject.Infrastructure\MyProject.Infrastructure.csproj" />
     <ProjectReference Include="..\MyProject.Models\MyProject.Models.csproj" />
+
   </ItemGroup>
+
 
 
 
