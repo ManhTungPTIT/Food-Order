@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Product.css",
+      "PackagePath": "staticwebassets\\css\\Product.css"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Register.css",
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\Register.js",
       "PackagePath": "staticwebassets\\js\\Register.js"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\product.js",
+      "PackagePath": "staticwebassets\\js\\product.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\site.js",
