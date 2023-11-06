@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\js\\Register.js"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\pagination.js",
+      "PackagePath": "staticwebassets\\js\\pagination.js"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },

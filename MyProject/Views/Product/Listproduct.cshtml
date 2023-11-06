@@ -1,22 +1,72 @@
+@using MyProject.Models.Models
 @model List<MyProject.Models.Dtos.ProductDto>;
 @{
     Layout = "_Admin";
+    var currentEntrie = (int)ViewBag.CurrentPage;
+    var totalEntries = (int)ViewBag.TotalItem;
+    var pageSize = (int)ViewBag.PageSize;
+    var listCate = ViewBag.ListCate as List<Category>;
+
+    var pageFirst = pageSize * (currentEntrie - 1) + (currentEntrie - (currentEntrie - 1));
+    var pageLast = pageFirst + pageSize - 1;
+    if (pageLast > totalEntries) pageLast = totalEntries;
 }
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="/css/Product.css"/>
 
 <body>
 
 
 <div>
-    <button type="button" class="btn btn-warning mt-1">Add</button>
+    <button type="button" class="btn btn-warning mt-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: white">Add</button>
+
+    <form asp-action="CreateProduct" >
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Thêm sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="file" class="form-control shadow-none"/>
+                        <input type="text" class="form-control shadow-none" placeholder="Tên sản phẩm"/>
+                        <input type="number" class="form-control shadow-none" placeholder="Giá sản phẩm"/>
+                        <div class="category-grid">
+                            @if (listCate != null)
+                            {
+                                @foreach (var category in listCate)
+                                {
+                                    <div class="form-check" style="margin: 10px">
+                                        <input class="form-check-input" type="checkbox" id="@category.Id" name="Categories" value="@category.Id">
+                                        <label class="form-check-label" for="@category.Id">@category.CategoryName</label>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>Chưa có danh mục </p>
+                            }
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
 </div>
 @if (Model != null)
 {
     <div class="container d-flex justify-content-center">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" id="List-item">
                 @foreach (var prodcut in Model)
                 {
                     <div class="card border shadow-none mb-4">
@@ -36,8 +86,8 @@
                                 </div>
                             </div>
                             <div class="Activity d-flex flex-column justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary" 
-                                        asp-action="DeleteProduct" asp-router-id ="@prodcut.Id" >
+                                <button type="button" class="btn btn-outline-secondary"
+                                        asp-action="DeleteProduct" asp-router-id="@prodcut.Id">
                                     Delete
                                 </button>
                                 <button type="button" class="btn btn-outline-warning">
@@ -47,7 +97,53 @@
                         </div>
                     </div>
                 }
-                
+
+            </div>
+            <div class="container-fluid d-flex flex-row justify-content-between m-0">
+                @if (ViewBag.TotalPages > 1)
+                {
+                    <div class="fs-6 " id="title-page" style="color: grey ">
+                        Showing <span >@pageFirst</span> to <span >@pageLast</span> of @totalEntries entries
+                    </div>
+
+                    <nav aria-label="Page navigation" style="margin-right: 5rem">
+                        <ul class="pagination">
+                            @if (ViewBag.CurrentPage > 0)
+                            {
+                                <li class="page-item">
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>First</button>
+                                </li>
+
+                                <li class="page-item">
+                                    <button class="pageBtn " style="height: 2.36rem; width: 4.7rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Previous</button>
+                                </li>
+                            }
+
+                            <li class="page-item">
+                                <button class="pageBtn activeBt" style="height: 2.36rem; width: 4.7rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>1</button>
+                            </li>
+                            @for (int i = 2; i <= ViewBag.TotalPages; i++)
+                            {
+                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>@i</button>
+                                </li>
+                            }
+
+                            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                            {
+                                <li class="page-item">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">Next</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Next</button>
+                                </li>
+                                <li class="page-item">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.TotalPages })">Last</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Last</button>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
             </div>
         </div>
     </div>
@@ -57,5 +153,5 @@ else
     <div>Không có sản phẩm nào</div>
 }
 
-
+<script src="/js/pagination.js"></script>
 </body>

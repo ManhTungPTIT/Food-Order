@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rk/ndHdDOKLwp5MPJS8ZtGeOZQUYjhl7DZTJOZg8Nfk=",
+  "Hash": "Bl0AapT+Iqk0Gc0Vfr+6otgJB1MK+DugxPiPpjvYhJk=",
   "Source": "MyProject",
   "BasePath": "_content/MyProject",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\LogOut.js"
+    },
+    {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\pagination.js",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "js/pagination.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\pagination.js"
     },
     {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\product.js",

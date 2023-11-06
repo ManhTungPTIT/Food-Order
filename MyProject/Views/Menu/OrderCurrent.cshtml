@@ -1,0 +1,56 @@
+@model List<MyProject.Models.Models.OrderProduct>
+
+
+    <div class="Table">
+        <div class="Table-main" id="List_order">
+            @if (Model != null)
+            {
+                @foreach (var product in Model)
+                {
+                    <div class="Table-main_item">
+                        <div class="Table-main_item-img">
+                            <img
+                                src="@product.Product.Image"
+                                alt="Anh"/>
+                        </div>
+
+                        <div class="Table-main_item-info">
+                            <p class="infor-name">@product.Product.ProductName</p>
+                            <div class="d-flex flex-row ">
+                                <p>Số lượng: </p>
+                                <input type="number" id="quantity" class="infor-quantity" value="@product.Quantity" readonly/>
+                            </div>
+                            <div>
+                                <p>Giá tiền: </p>
+                                <input type="number" id="totalPrice" class="infor-price" value="@product.Product.Price" readonly/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Chưa có đơn nào</p>
+            }
+        </div>
+        <div class="Table-footer">
+            <div class="footer-item">
+                <label>Tên khách hàng</label>
+                <input id="name-customer"/>
+            </div>
+            <div class="footer-item">
+                <label>Tên nhân viên </label>
+                <p id="name-employee">@User.Identity?.Name</p>
+            </div>
+            <div class="footer-item">
+                <label>Hóa đơn</label>
+                <p id="total"></p>
+            </div>
+            <div class="Confirm">
+                <button id="confirm">Đặt đơn</button>
+            </div>
+        </div>
+    </div>
+
+

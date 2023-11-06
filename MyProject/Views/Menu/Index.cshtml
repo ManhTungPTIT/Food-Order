@@ -1,0 +1,41 @@
+@{
+    Layout = "_Layout";
+    var list = "";
+    var listOrder = "";
+}
+
+<div class="container-fluid">
+    <div class="row d-flex flex-row justify-content-between">
+        <div class="Main col-6">
+            <div class="List-item">
+                @if (list != null)
+                {
+                    @foreach (var product in list)
+                    {
+                        <div class="Item">
+                            <div class="Item-img">
+                                <img
+                                    src="@product.Avatar"
+                                    alt=""
+                                    id="image"/>
+                            </div>
+                            <p id="name">@product.ProductName</p>
+                            <p id="price">@product.Price</p>
+                            <button id="add" data-productId="@product.Id">Thêm vào giỏ</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Không có sản phẩm trong data</p>
+                }
+                
+
+            </div>
+        </div>
+
+        <div class=" col-4" id="bill">
+            @Html.Partial("OrderCurrent", listOrder)
+        </div>
+    </div>
+</div>

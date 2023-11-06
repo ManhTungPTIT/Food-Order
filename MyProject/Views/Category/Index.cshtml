@@ -1,19 +1,125 @@
 @page
+@using MyProject.Models.Models
 @model MyProject.Views.Category.Index
 
 @{
-    Layout = null;
+    Layout = "_Admin";
+    var list = ViewBag.ListCate as List<Category>;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 <div>
+  <button type="button" class="btn btn-warning mt-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: white">Add</button>
     
+  <form asp-action="AddCategory">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Thêm sản phẩm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control shadow-none" placeholder="Tên category" name="name"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
 </div>
-</body>
-</html>
+
+    <div class="container">
+      <table class="table border table-hover">
+        <thead>
+          <tr>
+            <th>Tên danh mục</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+        @if (list != null)
+        {
+          foreach (var category in list)
+          {
+            <tr>
+              <td>@category.CategoryName</td>
+              <td>
+                <div
+                  class="Activity d-flex flex-column justify-content-between align-item-center">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary my-2"
+                    style="width: 6rem"
+                    asp-action="DeleteCategory"
+                    asp-router-id="@category.Id">
+                    Xóa
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-warning my-2"
+                    style="width: 6rem"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#edit/@category.Id">
+                    Chỉnh sửa
+                  </button>
+                </div>
+                
+                <!-- Modal -->
+                <form asp-action="EditCategory">
+                <div class="modal fade" id="edit/@category.Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Sửa thông tin danh mục</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <input class="form-control shadow-none" type="text" value="@category.CategoryName" name="categoryName"/>
+                        <input value="@category.Id" name="categoryId" style="display: none"/>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                
+              </td>
+            </tr>
+          }
+        }
+        else
+        {
+          <tr>
+            <td>Đồ uống</td>
+            <td>
+              <div class="Activity d-flex flex-column justify-content-between">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary my-2"
+                  style="width: 6rem"
+                  asp-action="DeleteCategory"
+                  asp-router-id="">
+                  Delete
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-warning my-2"
+                  style="width: 6rem">
+                  Edit
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+        
+        </tbody>
+      </table>
+    </div>
