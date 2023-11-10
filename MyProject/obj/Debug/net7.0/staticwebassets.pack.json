@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Admin.css"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Icon_menu.css",
+      "PackagePath": "staticwebassets\\css\\Icon_menu.css"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\LogOut.css",
       "PackagePath": "staticwebassets\\css\\LogOut.css"
     },
@@ -45,12 +49,20 @@
       "PackagePath": "staticwebassets\\js\\pagination.js"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\paginationMenu.js",
+      "PackagePath": "staticwebassets\\js\\paginationMenu.js"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\update_cart.js",
+      "PackagePath": "staticwebassets\\js\\update_cart.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\lib\\bootstrap\\LICENSE",

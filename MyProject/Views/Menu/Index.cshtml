@@ -1,21 +1,31 @@
+@using MyProject.Models.Models
+@model List<MyProject.Models.Dtos.ProductDto>
 @{
     Layout = "_Layout";
+    var currentEntrie = (int)ViewBag.CurrentPage;
+    var totalEntries = (int)ViewBag.TotalItem;
+    var pageSize = (int)ViewBag.PageSize;
+    var listCate = ViewBag.ListCate as List<Category>;
+
+    var pageFirst = pageSize * (currentEntrie - 1) + (currentEntrie - (currentEntrie - 1));
+    var pageLast = pageFirst + pageSize - 1;
+    if (pageLast > totalEntries) pageLast = totalEntries;
     var list = "";
-    var listOrder = "";
+    var listOrder = ViewData["OrderProduct"] as List<OrderProduct>;
 }
 
 <div class="container-fluid">
     <div class="row d-flex flex-row justify-content-between">
-        <div class="Main col-6">
-            <div class="List-item">
+        <div class="Main col-8">
+            <div class="List-item" id="List_item"id="List_item">
                 @if (list != null)
                 {
-                    @foreach (var product in list)
+                    @foreach (var product in Model)
                     {
                         <div class="Item">
                             <div class="Item-img">
                                 <img
-                                    src="@product.Avatar"
+                                    src="@product.Image"
                                     alt=""
                                     id="image"/>
                             </div>
@@ -29,13 +39,61 @@
                 {
                     <p>Không có sản phẩm trong data</p>
                 }
-                
 
+
+            </div>
+            <div class="container-fluid d-flex flex-row justify-content-between m-0">
+                @if (ViewBag.TotalPages > 1)
+                {
+                    <div class="fs-6 " id="title-page" style="color: grey ">
+                        Showing <span >@pageFirst</span> to <span >@pageLast</span> of @totalEntries entries
+                    </div>
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            @if (ViewBag.CurrentPage > 0)
+                            {
+                                <li class="page-item">
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>First</button>
+                                </li>
+
+                                <li class="page-item">
+                                    <button class="pageBtn " style="height: 2.36rem; width: 4.7rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Previous</button>
+                                </li>
+                            }
+
+                            <li class="page-item">
+                                <button class="pageBtn activeBt" style="height: 2.36rem; width: 4.7rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>1</button>
+                            </li>
+                            @for (int i = 2; i <= ViewBag.TotalPages; i++)
+                            {
+                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>@i</button>
+                                </li>
+                            }
+
+                            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                            {
+                                <li class="page-item">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">Next</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Next</button>
+                                </li>
+                                <li class="page-item">
+                                    @* <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.TotalPages })">Last</a> *@
+                                    <button class="pageBtn" style="height: 2.36rem; width: 3rem" data-pageSize=@pageSize data-totalEntries=@totalEntries>Last</button>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
             </div>
         </div>
 
-        <div class=" col-4" id="bill">
+        <div class="col-4" id="bill">
             @Html.Partial("OrderCurrent", listOrder)
         </div>
     </div>
 </div>
+<script src="/js/paginationMenu.js"></script>
+<script src="/js/update_cart.js"></script>

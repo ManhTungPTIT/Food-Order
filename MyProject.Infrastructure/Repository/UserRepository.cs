@@ -17,4 +17,13 @@ public class UserRepository : Repository<User>, IUserRepository
 
         return userData;
     }
+
+    public async Task<int> GetUserIdAsync(string name)
+    {
+        var id = await Context.Set<User>()
+                .Where(u => u.UserName == name)
+                .Select(u => u.ID)
+                .FirstOrDefaultAsync();
+        return id;
+    }
 }

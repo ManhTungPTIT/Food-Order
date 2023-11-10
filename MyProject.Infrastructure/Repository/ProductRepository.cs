@@ -31,11 +31,6 @@ public class ProductRepository : Repository<Product>, IProductRepository
                 Image = p.Image,
                 ProductName = p.ProductName,
                 Price = p.Price,
-                Categories = p.ProductCategories.Select(pc => new CategoryDto
-                {
-                    Id = pc.CategoryId,
-                    CategoryName = pc.Category.CategoryName,
-                }).ToList()
             }).ToListAsync();
 
         respone.ProductDtos = productDto;
@@ -77,5 +72,12 @@ public class ProductRepository : Repository<Product>, IProductRepository
         product.DeletedOn = DateTime.Now;
         await Context.SaveChangesAsync();
         return true;
+    }
+
+    public async Task<Product> GetProductByIdAsync(int id)
+    {
+        var product = await Context.Set<Product>().FirstOrDefaultAsync(p => p.Id == id);
+
+        return product;
     }
 }

@@ -6,5 +6,6 @@ public class ProductDto : BaseDtos
 
     public string? Image { get; set; }
     public decimal Price { get; set; }
-    public ICollection<CategoryDto> Categories { get; set; }
+    public string Category { get; set; }
+    
 }

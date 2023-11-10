@@ -116,7 +116,8 @@ btn.forEach((bt) => {
             `;
                 });
                 container.innerHTML = render;
-
+                var btAdds = document.querySelectorAll("#add");
+                console.log(btAdds);
             }
         })
 

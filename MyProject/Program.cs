@@ -22,6 +22,8 @@ namespace MyProject
             // Autofac integrationa
             builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
             builder.Host.ConfigureContainer<ContainerBuilder>(config => config.RegisterModule(new CoreModule()));
+            
+            builder.Services.AddDistributedMemoryCache();
 
             builder.Services.AddSession(options =>
             {
@@ -101,6 +103,8 @@ namespace MyProject
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",

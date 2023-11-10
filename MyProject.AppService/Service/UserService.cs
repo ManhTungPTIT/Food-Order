@@ -16,4 +16,9 @@ public class UserService : IUserService
     {
         return await _repository.GetUserAsync(user);
     }
+
+    public async Task<int> GetUserId(string name)
+    {
+        return await _repository.GetUserIdAsync(name);
+    }
 }

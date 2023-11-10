@@ -43,15 +43,17 @@ button.onclick = function (e){
         console.log(phone.value);
         console.log(birthday.value);
         $.ajax({
-            url: "~/Authen/Register",
+            url: "/Authen/Register",
             type: "POST",
             data: {
-                userName: userName,
-                password: pass,
+                userName: userName.value,
+                password: pass.value,
+                phone: phone.value,
+                birthday: birthday.value,
             },
             
             success: function (){
-                location.reload();
+                
             }
         })
     }

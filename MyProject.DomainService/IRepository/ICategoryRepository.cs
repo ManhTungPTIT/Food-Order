@@ -1,3 +1,4 @@
+using MyProject.Models.Dtos;
 using MyProject.Models.Models;
 
 namespace MyProject.DomainService.IRepository;

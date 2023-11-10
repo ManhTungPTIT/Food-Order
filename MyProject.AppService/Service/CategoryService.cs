@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using MyProject.AppService.IService;
 using MyProject.DomainService.IRepository;
+using MyProject.Models.Dtos;
 using MyProject.Models.Models;
 
 namespace MyProject.AppService.Service;

@@ -38,11 +38,15 @@ public class ProductController : Controller
         return response.ProductDtos;
     }
 
-    public async Task<IActionResult> CreateProduct(string name, decimal price, string avatar, int[] categories)
+    public async Task<IActionResult> CreateProduct(string name, decimal price, string avatar, string categoryName)
     {
-        var dataCate = await _categoryService.GetAllCategory();
-        var selectCate = dataCate.Where(c => categories.Contains(c.Id)).ToList();
-
+        var newProduct = new Product()
+        {
+            ProductName = name,
+            Price = price,
+            
+            CreatedOn = DateTime.Now,
+        };
        
         return View("ListProduct");
     }

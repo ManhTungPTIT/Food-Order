@@ -15,7 +15,6 @@ public class ApplicationDbContext : IdentityDbContext
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
             
         modelBuilder.ApplyConfiguration(new CategoryConfigurations());
-        modelBuilder.ApplyConfiguration(new ProductCategoriesConfiguration());
         modelBuilder.ApplyConfiguration(new OrderConfigurations());
         modelBuilder.ApplyConfiguration(new OrderProductConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());

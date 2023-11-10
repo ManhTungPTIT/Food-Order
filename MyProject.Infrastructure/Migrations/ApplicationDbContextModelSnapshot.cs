@@ -366,6 +366,9 @@ namespace MyProject.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -386,34 +389,9 @@ namespace MyProject.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product", (string)null);
-                });
-
-            modelBuilder.Entity("MyProject.Models.Models.ProductCategory", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ProductId", "CategoryId");
-
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ProductCategory", (string)null);
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("MyProject.Models.Models.User", b =>
@@ -550,28 +528,20 @@ namespace MyProject.Infrastructure.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("MyProject.Models.Models.ProductCategory", b =>
+            modelBuilder.Entity("MyProject.Models.Models.Product", b =>
                 {
                     b.HasOne("MyProject.Models.Models.Category", "Category")
-                        .WithMany("ProductCategories")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MyProject.Models.Models.Product", "Product")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("MyProject.Models.Models.Category", b =>
                 {
-                    b.Navigation("ProductCategories");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("MyProject.Models.Models.Order", b =>
@@ -579,11 +549,6 @@ namespace MyProject.Infrastructure.Migrations
                     b.Navigation("DepositHistories");
 
                     b.Navigation("OrderProducts");
-                });
-
-            modelBuilder.Entity("MyProject.Models.Models.Product", b =>
-                {
-                    b.Navigation("ProductCategories");
                 });
 
             modelBuilder.Entity("MyProject.Models.Models.User", b =>

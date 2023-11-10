@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyProject.DomainService.IRepository;
 using MyProject.Infrastructure.ApplicationContext;
+using MyProject.Models.Dtos;
 using MyProject.Models.Models;
 
 namespace MyProject.Infrastructure.Repository;
