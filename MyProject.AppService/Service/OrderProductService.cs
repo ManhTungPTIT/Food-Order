@@ -16,4 +16,14 @@ public class OrderProductService : IOrderProductService
     {
         return await _repository.CreateOrderProduct(orderProducts, userId);
     }
+
+    public async Task<List<Order>> GetOrderByUser(int id)
+    {
+        return await _repository.GetOrderByUser(id);
+    }
+
+    public async Task<List<int>> GetProductIdByOrder(int id)
+    {
+        return await _repository.GetProductIdByOrderAsync(id);
+    }
 }

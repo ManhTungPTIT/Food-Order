@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.AppService.IService;
 using MyProject.Models.Models;
 
 namespace MyProject.Controllers;
 
+[Authorize]
+[Authorize(Roles = "ADMIN")]
 public class CategoryController : Controller
 {
     private readonly ICategoryService _categoryService;

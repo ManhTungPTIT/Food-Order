@@ -4,6 +4,7 @@ namespace MyProject.AppService.IService;
 
 public interface IUserService
 {
-    Task<User> GetUser(User user);
+    Task<User> GetUser(string name);
     Task<int> GetUserId(string name);
+    Task<bool> UpdateInfoUser(User user);
 }

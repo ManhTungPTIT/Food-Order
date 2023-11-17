@@ -12,13 +12,18 @@ public class UserService : IUserService
     {
         _repository = repository;
     }
-    public async Task<User> GetUser(User user)
+    public async Task<User> GetUser(string name)
     {
-        return await _repository.GetUserAsync(user);
+        return await _repository.GetUserAsync(name);
     }
 
     public async Task<int> GetUserId(string name)
     {
         return await _repository.GetUserIdAsync(name);
+    }
+
+    public async Task<bool> UpdateInfoUser(User user)
+    {
+        return await _repository.UpdateInfoUserAsync(user);
     }
 }

@@ -1,4 +1,5 @@
 using AmelaFood.SessionExtensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -11,6 +12,8 @@ using Constants = MyProject.Constant.Constants;
 
 namespace MyProject.Controllers;
 
+[Authorize]
+[Authorize(Roles = "USER")]
 public class MenuController : Controller
 {
     private readonly IProductService _productService;
@@ -103,13 +106,16 @@ public class MenuController : Controller
         return cartItems;
     }
     
-    public async Task<IActionResult> ClearOrder(string name, List<int> listId)
+    public async Task<IActionResult> ClearOrder( List<int> listId)
     {
         var order =
             HttpContext.Session.Get<List<OrderProduct>>(Constants.OrderProducts);
 
         var userId = await _userService.GetUserId(User.Identity.Name);
+       
         var orderResult = await _orderProductService.CreateOrderProduct(order, userId);
+        
+       
 
         HttpContext.Session.Clear();
         return RedirectToAction("Index");

@@ -11,9 +11,9 @@ public class UserRepository : Repository<User>, IUserRepository
     {
     }
 
-    public async Task<User> GetUserAsync(User user)
+    public async Task<User> GetUserAsync(string name)
     {
-        var userData = await Context.Set<User>().FirstOrDefaultAsync(u => u.UserName == user.UserName);
+        var userData = await Context.Set<User>().FirstOrDefaultAsync(u => u.UserName == name);
 
         return userData;
     }
@@ -25,5 +25,25 @@ public class UserRepository : Repository<User>, IUserRepository
                 .Select(u => u.ID)
                 .FirstOrDefaultAsync();
         return id;
+    }
+
+    public async Task<bool> UpdateInfoUserAsync(User user)
+    {
+        var data = await Context.Set<User>()
+            .Where(u => u.UserName == user.UserName)
+            .FirstOrDefaultAsync();
+
+        if (data != null)
+        {
+            data.Avatar = user.Avatar;
+            data.Birthday = user.Birthday;
+            data.Address = user.Address;
+            data.Phone = user.Phone;
+
+            Context.Set<User>().Update(data);
+            await Context.SaveChangesAsync();
+            return true;
+        }
+        return false;
     }
 }

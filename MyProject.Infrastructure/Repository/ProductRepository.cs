@@ -31,6 +31,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
                 Image = p.Image,
                 ProductName = p.ProductName,
                 Price = p.Price,
+                Category = p.Category.CategoryName,
             }).ToListAsync();
 
         respone.ProductDtos = productDto;
@@ -48,7 +49,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
     public async Task<bool> EditProductAsync(Product product)
     {
         var productData = await Context.Set<Product>()
-            .Where(p => p.Id == product.Id)
+            .Where(p => p.ProductName == product.ProductName)
             .FirstOrDefaultAsync();
 
         if (productData != null)

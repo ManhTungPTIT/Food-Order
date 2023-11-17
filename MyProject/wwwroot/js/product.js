@@ -1,42 +1,38 @@
-$(document).ready(function () {
-    $("button[id^='confirmButton']").click(function () {
-        const productId = $(this).data("product-id");
+var btDeleteProducts = document.querySelectorAll(".delete");
+var btEdit = document.querySelectorAll(".EditProduct");
 
+
+btDeleteProducts.forEach((bt, index) => {
+    console.log("zoooo")
+    bt.onclick = function (){
+        console.log("vaooo")
+        var id = bt.getAttribute("data-routerId");
         $.ajax({
-            url: "/Admin/DeleteProduct",
-            type: "POST",
-            data: { productId: productId },
-            success: function () {
-                console.log("Xoá sản phẩm thành công!" + productId);
-                const modalId = "confirDeleteProduct-" + productId;
-                $("#" + modalId).modal("hide");
-
-                window.location.href = "/Admin/ProductManagement";
+            url: '/Product/DeleteProduct',
+            type: 'POST',
+            data: {
+                id: parseInt(id),
             },
-            error: function () {
-                alert("Lỗi khi xoá sản phẩm!");
+            success: function (){
+                window.location.href = "/Product/ListProduct";
             }
-        });
-    });
+        })
+    }
+})
 
-    $("button[id^='confirmButtonCategory']").click(function () {
-        const categoryId = $(this).data("category-id");
-        console.log("Xoá category thành công!" + categoryId);
+btEdit.forEach((bt,index) => {
+    bt.onclick = function (){
+        var id = bt.getAttribute("data-productID");
+        console.log(id);
+        console.log(typeof id);
         $.ajax({
-            url: "/Admin/DeleteCategory",
-            type: "POST",
-            data: { categoryId: categoryId },
-            success: function () {
-                console.log("Xoá sản phẩm thành công!" + categoryId);
-                const modalId = "confirmDeleteCategory-" + categoryId;
-                $("#" + modalId).modal("hide");
-
-                window.location.href = "/Admin/ProductManagement";
+            url: `/Product/DeleteProduct`,
+            data: {
+                id: parseInt(id),
             },
-            error: function () {
-                alert("Lỗi khi xoá sản phẩm!");
+            success: function (){
+                window.location.href = "/Product/ListProduct";
             }
-        });
-    });
-
-});
+        })
+    }
+})

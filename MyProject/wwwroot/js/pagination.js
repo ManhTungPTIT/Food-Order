@@ -4,7 +4,14 @@ var indexActive;
 var pageFirst = document.getElementById("pageFirst");
 var pageLast = document.getElementById("pageLast");
 var title_page = document.getElementById("title-page");
+var buttonDelete = document.querySelectorAll(".delete");
 
+buttonDelete.forEach((button, index) => {
+    button.onclick = function (){
+        var id = bt.getAttribute("data-routerId");
+        DeleteProduct(id);
+    }
+})
 function cleaneButton() {
     btn.forEach((bt, index) => {
         if (bt.classList.contains("activeBt")) {
@@ -99,15 +106,17 @@ btn.forEach((bt) => {
                                 <div class="Info d-flex flex-column justify-content-around">
                                     <h5>${product.productName}</h5>
                                     <p>${product.price}</p>
-                                    <p>${product.categories}</p>
+                                    <p>${product.category}</p>
                                 </div>
                             </div>
                             <div class="Activity d-flex flex-column justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary"
-                                        asp-action="DeleteProduct" asp-router-id="${product.id}">
+                                <button type="button" class="btn btn-outline-secondary delete"
+                                        asp-action="DeleteProduct" data-routerId="${product.id}">
                                     Delete
                                 </button>
-                                <button type="button" class="btn btn-outline-warning">
+                                <button type="button" class="btn btn-outline-warning EditProduct"
+                                        data-bs-toggle="modal" data-bs-target="#EditProduct"
+                                        data-productID = "${product.id}">
                                     Edit
                                 </button>
                             </div>
@@ -116,10 +125,62 @@ btn.forEach((bt) => {
             `;
                 });
                 container.innerHTML = render;
-                var btAdds = document.querySelectorAll("#add");
-                console.log(btAdds);
+                var btDeleteProducts = document.querySelectorAll(".delete");
+                var btEdit = document.querySelectorAll(".EditProduct");
+                
+                btDeleteProducts.forEach((bt, index) => {
+                    bt.onclick = function (){
+                        console.log("vaooo")
+                        var id = bt.getAttribute("data-routerId");
+                        DeleteProduct(id);
+                    }
+                })
+
+                btEdit.forEach((bt,index) => {
+                    bt.onclick = function (){
+                        var id = bt.getAttribute("data-productID");
+                        console.log(id);
+                        console.log(typeof id);
+                        $.ajax({
+                            url: `/Product/DeleteProduct`,
+                            data: {
+                                id: parseInt(id),
+                            },
+                            success: function (){
+                                window.location.href = "/Product/ListProduct";
+                            }
+                        })
+                    }
+                })
             }
         })
 
     }
 })
+
+function DeleteProduct(id){
+    $.ajax({
+        url: '/Product/DeleteProduct',
+        type: 'POST',
+        data: {
+            id: parseInt(id),
+        },
+        success: function (){
+            window.location.href = "/Product/ListProduct";
+        }
+    })
+}
+
+function UpdateProduct(){
+    $.ajax({
+        url: `/Product/EditProduct/`,
+        data: {
+            id: parseInt(id),
+        },
+        success: function (){
+            window.location.href = "/Product/ListProduct";
+        }
+    })
+}
+
+

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.AppService.IService;
 using MyProject.Models.Dtos;
@@ -5,6 +6,8 @@ using MyProject.Models.Models;
 
 namespace MyProject.Controllers;
 
+[Authorize]
+[Authorize(Roles = "ADMIN")]
 public class ProductController : Controller
 {
     private readonly IProductService _productService;
@@ -16,8 +19,9 @@ public class ProductController : Controller
         _categoryService = categoryService;
     }
     // GET
-    public async Task<IActionResult> ListProduct(int page = 1)
+    public async Task<IActionResult> ListProduct()
     {
+        int page = 1;
         var pageSize = 3;
         var response = await _productService.GetAllProduct(page, pageSize);
         var categories = await _categoryService.GetAllCategory();
@@ -38,20 +42,32 @@ public class ProductController : Controller
         return response.ProductDtos;
     }
 
-    public async Task<IActionResult> CreateProduct(string name, decimal price, string avatar, string categoryName)
+    public async Task<IActionResult> CreateProduct(string name, decimal price, string avatar, int categoryName)
     {
-        var newProduct = new Product()
+        var newProduct = new Product
         {
+            Image = avatar,
             ProductName = name,
             Price = price,
-            
+            CategoryId = categoryName,
             CreatedOn = DateTime.Now,
         };
-       
-        return View("ListProduct");
+
+        await _productService.AddProduct(newProduct);
+        return RedirectToAction("ListProduct");
     }
-    public IActionResult EditProduct()
+    public async Task<IActionResult> EditProduct(string name, decimal price, string avatar, int categoryName)
     {
+        var newProduct = new Product
+        {
+            Image = avatar,
+            ProductName = name,
+            Price = price,
+            CategoryId = categoryName,
+            CreatedOn = DateTime.Now,
+        };
+
+        await _productService.EditProduct(newProduct);
         return View("ListProduct");
     }
 

@@ -2,7 +2,7 @@ var btAdds = document.querySelectorAll("#add");
 var totals = document.getElementById("total");
 var containerOrder = document.getElementById("List_order");
 var confirm =document.getElementById("confirm");
-var customer = document.getElementById("name_customer");
+
 
 var listId =[];
 updateCartInfo()
@@ -62,11 +62,11 @@ function updateCartInfo() {
                     <div class="Table-main_item-info">
                         <p class="infor-name">${order.product.productName}</p>                    
                         <div class="d-flex flex-row ">
-                                <p style="margin-bottom: 0">Số lượng: </p>
+                                <p style="margin-bottom: 0; width: 5rem">Số lượng: </p>
                                 <input type="number" id="quantity" class="info_quantity ms-5" value="${order.quantity}" readonly/>
                         </div>
                         <div class="d-flex flex-row ">
-                                <p style="margin-bottom: 0">Giá tiền: </p>
+                                <p style="margin-bottom: 0; width: 5rem ">Giá tiền: </p>
                                 <input type="number" id="totalPrice" class="info_price ms-5" value="${order.product.price}" readonly/>
                         </div>
                                 
@@ -94,21 +94,15 @@ function updateCartInfo() {
 
 console.log(listId);
 confirm.onclick = function (){
-    if(customer.value === ""){
-        alert("Vui lòng nhập tên khách hàng")
-    }
-    else {
         $.ajax({
         url: `/Menu/ClearOrder`,
         type: 'GET',
         data: {
-            name : customer.value,
             listId: listId,
         },
         success: function (){
             alert("Đặt đơn thành công")
-            window.location.href = "/Home/Index";
+            window.location.href = "/Menu/Index";
         }
     })
-    }
 }

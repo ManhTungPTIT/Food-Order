@@ -13,7 +13,8 @@ public class MappingProfile : Profile
         
         CreateMap<Category, CategoryDto>();
         
-        CreateMap<Order, OrderDto>();
+        CreateMap<Order, OrderDto>()
+            .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.OrderProducts.Select(p => p.Product)));
         CreateMap<OrderProduct, OrderProductDto>();
         CreateMap<User, UserDto>()
             .ForMember(dest => dest.Users,opt => opt.MapFrom(src => new UserDto{ UserId = src.ID, UserName = src.UserName} ));

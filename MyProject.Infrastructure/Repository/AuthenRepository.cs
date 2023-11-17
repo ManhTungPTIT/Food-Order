@@ -89,8 +89,6 @@ public class AuthenRepository : Repository<User>, IAuthenRepository
             var result = await _userManager.AddToRoleAsync(employeeIdentity, "USER");
             
         }
-
-
         await Context.SaveChangesAsync();
         return true;
     }

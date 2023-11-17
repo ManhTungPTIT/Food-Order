@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using MyProject.Infrastructure.ApplicationContext;
 using MyProject.Infrastructure.AutoFacModules;
 using Microsoft.AspNetCore.Identity;
+using MyProject.AppService.IService;
+using MyProject.AppService.Service;
 
 namespace MyProject
 {
@@ -85,7 +87,7 @@ namespace MyProject
             });
 
             builder.Services.AddAuthorization();
-
+            builder.Services.AddTransient<IFileUploadService, FileUploadService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -95,7 +97,7 @@ namespace MyProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -1,18 +1,88 @@
-
-
+@using MyProject.Models.Models
 @{
-    Layout = null;
+    Layout = "_Layout";
+    var list = ViewBag.ListOrder as List<Order>;
 }
 
-<!DOCTYPE html>
+<div class="Main container">
+    <div class="List_item">
+        <table class="table">
+            <tr>
+                <th class="text-center">Order Id</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Total</th>
+                <th class="text-center">Detail</th>
+            </tr>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+            @if (list != null)
+            {
+                foreach (var history in list)
+                {
+                    <tr>
+                        <td class="text-center orderId">@history.Id</td>
+                        <td class="text-center">@history.CreatedOn</td>
+                        <td class="text-center">@history.TotalAmount</td>
+                        <td class="text-center">
+                            <button
+                                type="button"
+                                class="detail btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal">
+                                ...
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+            
+        </table>
+        
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chi tiết đơn đặt</h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <table class="table" id="ListProduct">
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="d-flex align-item-center">
+                                        <img
+                                            src="https://images.pexels.com/photos/15564188/pexels-photo-15564188/free-photo-of-mon-an-b-a-an-b-a-an-sang-xi-ro-cay-thich.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                                            alt="Anh"
+                                            class="avatar"/>
+                                        <div class="mt-4 ms-2">Banh kep</div>
+                                    </div>
+                                </td>
+                                <td class="text-center">100000</td>
+                                <td class="text-center">2</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
-</body>
-</html>
+<script src="/js/history.js"></script>

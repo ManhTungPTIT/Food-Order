@@ -19,9 +19,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.js"></script>
         <link rel="stylesheet" href="/css/site.css"/>
-        <script src="/js/site.js"></script>
         <link rel="stylesheet" href="/css/LogOut.css"/>
         <link rel="stylesheet" href="/css/Icon_menu.css"/>
+        <link rel="stylesheet" href="/css/Icon_history.css"/>
     </nav>
 
 </head>
@@ -34,12 +34,6 @@
          style="width: 10vw; height: 95vh">
         <div class="items-navi d-flex flex-column justify-content-between shadow-lg" style="padding-left: 0.6rem ">
             <div class="Icon-item ">
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="menu-icon fa-solid fa-house"></i>
-                    <p class=" icon-text">Trang chủ</p>
-                </a>
-            </div>
-            <div class="Icon-item ">
                 <a href="@Url.Action("Index", "Profile")">
                     <i class="menu-icon fa-solid fa-user"></i>
                     <p class=" icon-text">Cá nhân</p>
@@ -47,8 +41,14 @@
             </div>
             <div class="Icon-item ">
                 <a href="@Url.Action("Index", "Menu")">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="menu-icon fa-solid fa-cart-shopping" style="padding-left:5px "></i>
                     <p class=" icon-text">Thực đơn</p>
+                </a>
+            </div>
+            <div class="Icon-item ">
+                <a href="@Url.Action("Index", "History")">
+                    <i class="menu-icon fa-solid fa-bell"></i>
+                    <p class=" icon-text">Lịch sử</p>
                 </a>
             </div>
 
@@ -63,7 +63,6 @@
 
 
 <script src="/js/Menu_icon.js"></script>
-
 
 
 </body>

@@ -5,8 +5,24 @@
       "PackagePath": "staticwebassets\\MyProject.bundle.scp.css"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\FileAvatar\\107803529_157684399185570_4520037289036810623_n.jpg",
+      "PackagePath": "staticwebassets\\FileAvatar\\107803529_157684399185570_4520037289036810623_n.jpg"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\FileAvatar\\IMG_20230126_152349.jpg",
+      "PackagePath": "staticwebassets\\FileAvatar\\IMG_20230126_152349.jpg"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\FileAvatar\\Nguyễn Mạnh Tùng.JPG",
+      "PackagePath": "staticwebassets\\FileAvatar\\Nguyễn Mạnh Tùng.JPG"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Admin.css",
       "PackagePath": "staticwebassets\\css\\Admin.css"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Icon_history.css",
+      "PackagePath": "staticwebassets\\css\\Icon_history.css"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Icon_menu.css",
@@ -41,8 +57,16 @@
       "PackagePath": "staticwebassets\\js\\LogOut.js"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\Menu_icon.js",
+      "PackagePath": "staticwebassets\\js\\Menu_icon.js"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\Register.js",
       "PackagePath": "staticwebassets\\js\\Register.js"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\history.js",
+      "PackagePath": "staticwebassets\\js\\history.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\pagination.js",
@@ -55,6 +79,10 @@
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\profile.js",
+      "PackagePath": "staticwebassets\\js\\profile.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\site.js",

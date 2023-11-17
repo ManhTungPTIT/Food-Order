@@ -1,12 +1,25 @@
 @using Microsoft.AspNetCore.Identity
+@using MyProject.Models.Models
+@{
+    var user = ViewBag.GetUser as User;
+    var url = "https://localhost:7158/";
+}
 
 @inject SignInManager<IdentityUser> SignInManager
-<ul class="navbar-nav ms-2 d-flex justify-content-center align-items-center flex-column ms-2" style="width: 100%; padding: 10% 13% 10% 0;">
+<ul class="navbar-nav ms-2 d-flex justify-content-center align-items-center flex-column ms-2" style="width: 100%; padding: 10% 0 10% 0;">
     @if (SignInManager.IsSignedIn(User))
     {
-        <i class="fa-regular fa-circle-user" style="cursor: auto; font-size: 2.5rem"></i>
+        @if (@user.Avatar == null)
+        {
+            <i class="fa-regular fa-circle-user" style="cursor: auto; font-size: 2.5rem"></i>
+        }
+        else
+        {
+            <img src="@url@user.Avatar" class="rounded-circle" style="width: 3rem; height: 3rem"/>
+        }
+        
         <li class="nav-item">
-            <span class="nav-link text-dark" style="font-size: 13px; margin-left: 18px;">@User.Identity!.Name</span>
+            <span class="nav-link text-dark fw-bold" style="font-size: 15px; margin-left: 18px;">@User.Identity!.Name</span>
         </li>
         <li class="nav-item">
             <div class="form-inline" style="background-color: #fea628; width: 120px; justify-content: center; border-radius: 20px; border: none;">

@@ -2,9 +2,9 @@
 @model List<MyProject.Models.Dtos.ProductDto>;
 @{
     Layout = "_Admin";
-    var currentEntrie = (int)ViewBag.CurrentPage;
+    var currentEntrie = 1;
     var totalEntries = (int)ViewBag.TotalItem;
-    var pageSize = (int)ViewBag.PageSize;
+    var pageSize = 3;
     var listCate = ViewBag.ListCate as List<Category>;
 
     var pageFirst = pageSize * (currentEntrie - 1) + (currentEntrie - (currentEntrie - 1));
@@ -22,7 +22,7 @@
 <div>
     <button type="button" class="btn btn-warning mt-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: white">Add</button>
 
-    <form asp-action="CreateProduct" >
+    <form asp-action="CreateProduct" asp-controller="Product">
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -32,16 +32,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="file" class="form-control shadow-none"/>
-                        <input type="text" class="form-control shadow-none" placeholder="Tên sản phẩm"/>
-                        <input type="number" class="form-control shadow-none" placeholder="Giá sản phẩm"/>
+                        <input type="text" class="form-control shadow-none " placeholder="Link ảnh" name="avatar"/>
+                        <input type="text" class="form-control shadow-none mt-3" placeholder="Tên sản phẩm" name="name"/>
+                        <input type="number" class="form-control shadow-none mt-3" placeholder="Giá sản phẩm" name="price"/>
                         <div class="category-grid">
                             @if (listCate != null)
                             {
                                 @foreach (var category in listCate)
                                 {
                                     <div class="form-check" style="margin: 10px">
-                                        <input class="form-check-input" type="radio" id="@category.Id" name="Categories" value="@category.Id">
+                                        <input class="form-check-input" type="radio" id="@category.Id" name="categoryName" value="@category.Id">
                                         <label class="form-check-label" for="@category.Id">@category.CategoryName</label>
                                     </div>
                                 }
@@ -54,13 +54,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="button" class="btn btn-primary">Lưu</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    
+
 </div>
 @if (Model != null)
 {
@@ -86,17 +86,58 @@
                                 </div>
                             </div>
                             <div class="Activity d-flex flex-column justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary"
-                                        asp-action="DeleteProduct" asp-router-id="@prodcut.Id">
+                                <button type="button" class="btn btn-outline-secondary delete"
+                                        asp-action="DeleteProduct" data-routerId="@prodcut.Id">
                                     Delete
                                 </button>
-                                <button type="button" class="btn btn-outline-warning">
+                                <button type="button" class="btn btn-outline-warning EditProduct"
+                                        data-bs-toggle="modal" data-bs-target="#EditProduct"
+                                        data-productID = "@prodcut.Id">
                                     Edit
                                 </button>
                             </div>
                         </div>
                     </div>
                 }
+
+                
+                    <div class="modal fade" id="EditProduct" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Thông tin sản phẩm</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text"  class="form-control shadow-none " placeholder="Link ảnh" name="avatar"/>
+                                    <input type="text"  class="form-control shadow-none mt-3" placeholder="Tên sản phẩm" name="name"/>
+                                    <input type="number"  class="form-control shadow-none mt-3" placeholder="Giá sản phẩm" name="price"/>
+                                    <div class="category-grid">
+                                        @if (listCate != null)
+                                        {
+                                            @foreach (var category in listCate)
+                                            {
+                                                <div class="form-check" style="margin: 10px">
+                                                    <input class="form-check-input" type="radio" id="@category.Id" name="categoryName" value="@category.Id">
+                                                    <label class="form-check-label" for="@category.Id">@category.CategoryName</label>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p>Chưa có danh mục </p>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
 
             </div>
             <div class="container-fluid d-flex flex-row justify-content-between m-0">

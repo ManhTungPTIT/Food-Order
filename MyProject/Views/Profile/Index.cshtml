@@ -1,47 +1,70 @@
 @using MyProject.Models.Models
+@using Azure.Core
+@using System.Net.NetworkInformation
 @model MyProject.Models.Models.User;
 
 @{
     Layout = "_Layout";
     var user = ViewBag.GetUser as User;
+    var url = "https://localhost:7158/";
+
 }
 
 <div class="container">
-    <div
-        class="row d-flex flex-direction-row justify-content-center align-items-center">
-        <div class="col-4" style="background-color: rgb(236, 121, 5)">
+    <form id="Form1" method="post" runat="server" enctype="multipart/form-data" asp-action="UploadInfo" asp-controller="Profile">
+    <div class="row d-flex flex-direction-row justify-content-center align-items-center mt-3">
+        
+        <div class="col-4">
             <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                src="@url@user.Avatar"
                 alt=""
                 style="width: 100%; height: 100%"
-                class="rounded-circle"/>
-            <input type="file" class="form-control" accept="image/*"/>
-            <h5 class="text-center">@User.Identity?.Name</h5>
+                class="rounded-circle"
+                id="avatar"/>
+            <input id="oFile" type="file" runat="server" name="postFiles" class="form-control mt-2">
+            
+           
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert mt-2">
+                    @ViewBag.Message
+                </div>
+            }
         </div>
         <div class="col-8">
             <div class="card-body">
-                <h5 class="card-title">Infomation</h5>
+                <h5 class="card-title">Thông tin cá nhân</h5>
                 <hr class="mt-0 mb-4"/>
-                <form asp-action="Index" asp-controller="Profile">
-                    <input
-                        type="date"
-                        class="form-control my-4"
-                        value="@user.Birthday"
-                        asp-for="Birthday"/>
-                    <input
-                        type="text"
-                        class="form-control my-4"
-                        value="@user.Address"
-                        asp-for="Address"/>
-                    <input
-                        type="text"
-                        class="form-control my-4"
-                        value="@user.Phone"
-                        asp-for="Phone"/>
-                    <button type="submit" class="btn-lg">Save</button>
-                </form>
+                <input
+                    type="text"
+                    class="form-control my-4"
+                    value="@User.Identity?.Name"
+                    readonly/>
+                <input
+                    type="date"
+                    class="form-control my-4"
+                    value="@user.Birthday"
+                    name="birthday"/>
+                <input
+                    type="text"
+                    class="form-control my-4"
+                    value="@user.Address"
+                    placeholder="Địa chỉ"
+                    name="address"/>
+                <input
+                    type="text"
+                    class="form-control my-4"
+                    value="@user.Phone"
+                    name="phone"/>
+                <button type="submit" class="btn-lg" id="save"  runat="server"
+                        style="border: none; color: white; background-color: rgb(241,158,38); border-radius: 10px">
+                    Lưu
+                </button>
                 
             </div>
         </div>
+        
     </div>
+    </form>
 </div>
+<script src="/js/profile.js"></script>

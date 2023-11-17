@@ -16,7 +16,53 @@ html {
   position: relative;
   min-height: 100%;
 }
+.items-navi {
+  min-height: 75vh;
+  width: 100%;
+  border-radius: 20px;
+}
 
-body {
-  margin-bottom: 60px;
+.Icon-item {
+  width: 95%;
+  height: 6rem;
+  margin: 0.5vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Icon-item a{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.menu-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  padding-top: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #7f7f7f;
+}
+.active {
+  background-color: rgb(254, 240, 225);
+  border-radius: 15px
+}
+
+i.Active {
+  color: rgb(236, 121, 5);
+}
+
+.icon-text {
+  font-size: 15px;
+  color: #7f7f7f;
+  text-align: center;
+  text-decoration: none;
+}
+
+.icon-text.Active {
+  color: rgb(236, 121, 5);
 }

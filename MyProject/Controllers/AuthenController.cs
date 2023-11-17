@@ -26,9 +26,13 @@ namespace MyProject.Controllers
                     Password = Password
                 };
                 var check = await _authenService.Login(user);
-                if (check)
+                if (check && UserName.Contains("@admin"))
                 {
-                    return Redirect("/Home/Index");
+                    return Redirect("/Product/ListProduct");
+                }
+                else if (check)
+                {
+                    return Redirect("/Profile/Index");
                 }
                 else
                 {
@@ -57,7 +61,7 @@ namespace MyProject.Controllers
                 var check = await _authenService.Register(user);
                 if (check)
                 {
-                    return Redirect("/Home/Index");
+                    return Redirect("/Profile/Index");
                 }
                 else
                 {
