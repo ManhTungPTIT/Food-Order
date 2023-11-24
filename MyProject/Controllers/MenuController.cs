@@ -41,6 +41,9 @@ public class MenuController : Controller
         ViewBag.PageSize = pageSize;
         ViewBag.TotalItem = response.TotalItem;
         ViewBag.ListItem = response.ProductDtos;
+        var name = User.Identity?.Name;
+        var getUser = await _userService.GetUser(name);
+        ViewBag.GetUser = getUser;
 
         return View(response.ProductDtos);
     }

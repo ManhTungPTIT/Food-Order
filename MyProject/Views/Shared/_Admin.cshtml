@@ -21,23 +21,28 @@
 </head>
 <body>
 <div class="Tabs">
-    <div class="Title d-flex flex-row">
-        <p>@User.Identity!.Name</p>
-        <a asp-action="Logout" asp-controller="Authen">Log out</a>
+    <div class="Title d-flex flex-row px-5">
+        <p class="fs-4">@User.Identity!.Name</p>
+        <a asp-action="Logout" asp-controller="Authen" class="fs-4">Log out</a>
     </div>
-    <div class="tab-item active">
-        <i class="tab-icon fa-solid fa-utensils"></i>
-        <a asp-action="ListProduct" asp-controller="Product">Product</a>
+    <div class="tab-item active d-flex flex-row align-items-center justify-content-around">
+        <i class="tab-icon fa-solid fa-utensils child"></i>
+        <p class="child" asp-action="ListProduct" asp-controller="Product">Product</p>
     </div>
-    <div class="tab-item active">
-        <i class="tab-icon  fa-solid fa-book-open"></i>
-        <a asp-action="Index" asp-controller="Category">Category</a>
+    <div class="tab-item active d-flex flex-row align-items-center justify-content-around">
+        <i class="tab-icon fa-solid fa-book-open child"></i>
+        <p class="child" asp-action="Index" asp-controller="Category">Category</p>
+    </div>
+    <div class="tab-item active d-flex flex-row align-items-center justify-content-around">
+        <i class="fa-solid fa-cart-shopping child me-2"></i>
+        <p class="child" asp-action="Index" asp-controller="Order" style="margin-right: 2rem">Order</p>
     </div>
 
 
-</div>
+</div> 
 <div class="Contents">
     @RenderBody()
 </div>
+<script src = "/js/order.js"></script>
 </body>
 </html>

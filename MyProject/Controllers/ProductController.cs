@@ -68,12 +68,18 @@ public class ProductController : Controller
         };
 
         await _productService.EditProduct(newProduct);
-        return View("ListProduct");
+        return RedirectToAction("ListProduct");
     }
 
     public async Task<IActionResult> DeleteProduct(int id)
     {
         await _productService.DeleteProduct(id);
         return RedirectToAction("ListProduct");
+    }
+
+    public async Task<Product> GetProduct(int id)
+    {
+        var list = await _productService.GetProductById(id);
+        return list;
     }
 }

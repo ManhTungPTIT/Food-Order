@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\FileAvatar\\Nguyễn Mạnh Tùng.JPG"
     },
     {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\FileAvatar\\user.png",
+      "PackagePath": "staticwebassets\\FileAvatar\\user.png"
+    },
+    {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Admin.css",
       "PackagePath": "staticwebassets\\css\\Admin.css"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\EditProduct.css",
+      "PackagePath": "staticwebassets\\css\\EditProduct.css"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Icon_history.css",
@@ -67,6 +75,10 @@
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\history.js",
       "PackagePath": "staticwebassets\\js\\history.js"
+    },
+    {
+      "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\order.js",
+      "PackagePath": "staticwebassets\\js\\order.js"
     },
     {
       "Id": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\pagination.js",

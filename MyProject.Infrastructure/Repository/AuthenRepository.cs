@@ -44,7 +44,8 @@ public class AuthenRepository : Repository<User>, IAuthenRepository
         {
             return false;
         }
-        
+
+        user.Avatar = "FileAvatar/user.png";
         //Kiem tra xem tai khoản dăng ký la admin hay nhân viên
         if (user.UserName.Contains("@admin")) //chua cum ky tu nay thi la admin
         {

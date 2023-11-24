@@ -30,6 +30,8 @@ public class HistoryController : Controller
         var name = User.Identity?.Name;
         var userId = await _userService.GetUserId(name);
 
+        var getUser = await _userService.GetUser(name);
+        ViewBag.GetUser = getUser;
         var list = await _orderProductService.GetOrderByUser(userId);
         ViewBag.ListOrder = list;
         return View();

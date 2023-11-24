@@ -31,7 +31,6 @@ body {
 
 .Title a {
     border: none;
-    width: 5rem;
     height: 1rem;
     margin-left: auto;
     color: white;
@@ -49,9 +48,11 @@ body {
     transition: all 0.5s ease;
 }
 
-.tab-item a {
+.tab-item p {
     color: gray;
     text-decoration: none;
+    margin-bottom: 0;
+    
 }
 
 .tab-icon {
@@ -66,14 +67,11 @@ body {
     color: rgb(254,166,40);
     background-color: rgba(111, 123, 123, 0.215);
 }
-.tab-item a:hover {
+.tab-item:hover .child {
     OPACITY: 1;
     COLOR: RGB(254,166,40);
 }
 
-.tab-item.active {
-    opacity: 1;
-}
 
 .Contents {
     margin: 5rem 0 0 10px;
@@ -91,7 +89,7 @@ body {
 }
 
 .fa-solid {
-    font-size: 1.3rem;
+    font-size: 32px;
 }
 
 .Edit_info {

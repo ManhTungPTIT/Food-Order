@@ -1,0 +1,45 @@
+@page
+@using MyProject.Models.Dtos
+@using Microsoft.AspNetCore.Routing.Constraints
+
+@{
+    Layout = "_Admin";
+    var list = ViewBag.ListOrder as List<OrderDto>;
+    var listQuantity =  ViewBag.ListQuantity as List<OrderProductDto>;
+}
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>OrderID</th>
+        <th>UserName</th>
+        <th>ProductName</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (list != null)
+    {
+        @for (int i = 0; i < list.Count; i++)
+        {
+            @for (var j = 0; j < listQuantity.Count; j++)
+            {
+                @if (list[i].Id == listQuantity[j].OrderId)
+                {
+                    <tr>
+                        <td class="ps-4">@list[i].Id</td>
+                        <td>@list[i].UserName</td>
+                        <td>@listQuantity[j].ProductName</td>
+                        <td class="ps-4">@listQuantity[j].Quantity</td>
+                        <td>@list[i].TotalAmount</td>
+                    </tr>
+                }
+                
+            }
+            
+        }
+    }
+    
+    </tbody>
+</table>

@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using MyProject.DomainService.IRepository;
 using MyProject.Infrastructure.ApplicationContext;
@@ -72,5 +73,68 @@ public class OrderRepository : Repository<OrderProduct>, IOrderProductRepository
             .ToListAsync();
         return list;
     }
+
+    public async Task<List<OrderDto>> GetAllOrderByDayAsync(string day)
+    {
+        DateTime dayRequest;
+        if (DateTime.TryParseExact(day, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                out dayRequest))
+        {
+            DateTime endDate = dayRequest.AddDays(1);
+            var list = await Context.Set<Order>()
+                .Where(o => o.CreatedOn >= dayRequest && o.DeletedOn < endDate)
+                .Select(op => new OrderDto
+                {
+                    TotalAmount = op.TotalAmount,
+                    Products = op.OrderProducts.Select(src => new Product
+                    {
+                        ProductName = src.Product.ProductName,
+                        Price = src.Product.Price,
+                    }).ToList()
+                }).ToListAsync();
+
+            return list;
+        }
+        return null;
+    }
+
+    public async Task<List<OrderDto>> GetOrderFinishByDayAsync(string day)
+    {
+        DateTime dayRequest;
+        if (DateTime.TryParseExact(day, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                out dayRequest))
+        {
+            DateTime endDate = dayRequest.AddDays(1);
+            var list = await Context.Set<Order>()
+                .Where(or => or.CreatedOn >= dayRequest && or.CreatedOn < endDate)
+                .Select(or => new OrderDto
+                {
+                    Id = or.Id,
+                    UserName = or.User.UserName,
+                    TotalAmount = or.TotalAmount,
+                }).ToListAsync();
+
+            return list;
+        }
+        return null;
+    }
+
+    public async Task<List<OrderProductDto>> GetQuantityProductByOrderAsync(List<OrderDto> order)
+    {
+        List<int> orderId = order.Select(or => or.Id).ToList();
+
+        var quantity = await Context.Set<OrderProduct>()
+            .Where(op => orderId.Contains(op.OrderId))
+            .Select(op => new OrderProductDto
+            {
+                OrderId = op.OrderId,
+                Quantity = op.Quantity,
+                Price = op.Price,
+                ProductName = op.Product.ProductName,
+            }).ToListAsync();
+
+        return quantity;
+    }
+
     
 }

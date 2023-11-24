@@ -33,7 +33,7 @@
   
 </div>
 
-    <div class="container">
+    <div class="container mt-2">
       <table class="table border table-hover">
         <thead>
           <tr>
@@ -50,11 +50,11 @@
               <td>@category.CategoryName</td>
               <td>
                 <div
-                  class="Activity d-flex flex-column justify-content-between align-item-center">
+                  class="Activity d-flex flex-row justify-content-between align-item-center">
                   <button
                     type="button"
                     class="btn btn-outline-secondary my-2"
-                    style="width: 6rem"
+                    style="width: 8rem"
                     asp-action="DeleteCategory"
                     asp-router-id="@category.Id">
                     Xóa
@@ -62,7 +62,7 @@
                   <button
                     type="button"
                     class="btn btn-outline-warning my-2"
-                    style="width: 6rem"
+                    style="width: 8rem"
                     data-bs-toggle="modal" 
                     data-bs-target="#edit/@category.Id">
                     Chỉnh sửa

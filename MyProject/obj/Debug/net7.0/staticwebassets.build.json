@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qIypio57Ki3FJQ0tt7SChew8acFrCF3Wnvf6tsYO5Kg=",
+  "Hash": "soVAwZUhssq+34xBDFTuxJlR9jsFk2STCVAKiLRiNA0=",
   "Source": "MyProject",
   "BasePath": "_content/MyProject",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin.css"
+    },
+    {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\EditProduct.css",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "css/EditProduct.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\EditProduct.css"
     },
     {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\css\\Icon_history.css",
@@ -255,6 +272,23 @@
       "OriginalItemSpec": "wwwroot\\FileAvatar\\Nguyễn Mạnh Tùng.JPG"
     },
     {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\FileAvatar\\user.png",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "FileAvatar/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FileAvatar\\user.png"
+    },
+    {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\history.js",
       "SourceId": "MyProject",
       "SourceType": "Discovered",
@@ -304,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Menu_icon.js"
+    },
+    {
+      "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\order.js",
+      "SourceId": "MyProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\",
+      "BasePath": "_content/MyProject",
+      "RelativePath": "js/order.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\order.js"
     },
     {
       "Identity": "D:\\Study\\LTHDT\\ProjectTotNghiep\\MyProject\\wwwroot\\js\\pagination.js",

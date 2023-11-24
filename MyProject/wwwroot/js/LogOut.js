@@ -21,7 +21,6 @@ cancel.onclick = function (){
 Confirm.onclick = function (){
     $.ajax({
         url: "/Authen/Logout",
-        type: "POST",
         success: function (){
             window.location.href = "/Authen/Login";
         }

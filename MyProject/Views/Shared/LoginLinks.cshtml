@@ -9,14 +9,9 @@
 <ul class="navbar-nav ms-2 d-flex justify-content-center align-items-center flex-column ms-2" style="width: 100%; padding: 10% 0 10% 0;">
     @if (SignInManager.IsSignedIn(User))
     {
-        @if (@user.Avatar == null)
-        {
-            <i class="fa-regular fa-circle-user" style="cursor: auto; font-size: 2.5rem"></i>
-        }
-        else
-        {
+        
             <img src="@url@user.Avatar" class="rounded-circle" style="width: 3rem; height: 3rem"/>
-        }
+        
         
         <li class="nav-item">
             <span class="nav-link text-dark fw-bold" style="font-size: 15px; margin-left: 18px;">@User.Identity!.Name</span>
@@ -44,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </li>
     }

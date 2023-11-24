@@ -3,15 +3,61 @@ var container = document.getElementById("List-item");
 var indexActive;
 var pageFirst = document.getElementById("pageFirst");
 var pageLast = document.getElementById("pageLast");
-var title_page = document.getElementById("title-page");
 var buttonDelete = document.querySelectorAll(".delete");
 
 buttonDelete.forEach((button, index) => {
     button.onclick = function (){
-        var id = bt.getAttribute("data-routerId");
+        var id = bt.getAttribute("data-routerid");
         DeleteProduct(id);
     }
 })
+
+var buttons = document.querySelectorAll(".EditProduct");
+var modal = document.getElementById("EditProduct");
+var span = document.getElementById("Close");
+var Confirm = document.getElementById("confirmLogOut");
+var cancel = document.getElementById("cancelLogOut");
+
+CallModalEdit(buttons);
+function CallModalEdit(buttons){
+    buttons.forEach(button => {
+        button.onclick = function (){
+            console.log("vao");
+            console.log(modal);
+            modal.style.display = "block";
+            var id = button.getAttribute("data-productid");
+            var avatar = document.getElementById("editAvatar");
+            var editName = document.getElementById("editName");
+            var editPrice = document.getElementById("editPrice");
+            var editId = document.getElementById("editId");
+            console.log(editName);
+            $.ajax({
+                url: `/Product/GetProduct`,
+                data: {
+                    id: parseInt(id),
+                },
+                success: function (data){
+                    console.log(data);
+                    console.log(data.image);
+                    editId.value = data.id;
+                    avatar.value = data.image;
+                    editName.value = data.productName;
+                    editPrice.value = data.price;
+                }
+            })
+        }
+    })
+
+    span.onclick = function (){
+        modal.style.display = "none";
+    }
+
+    cancel.onclick = function (){
+        modal.style.display = "none";
+    }
+}
+
+
 function cleaneButton() {
     btn.forEach((bt, index) => {
         if (bt.classList.contains("activeBt")) {
@@ -88,7 +134,6 @@ btn.forEach((bt) => {
             },
             success: function (data) {
                 var render = "";
-                console.log(data);
                 data.forEach(product => {
 
                     render += `
@@ -114,9 +159,8 @@ btn.forEach((bt) => {
                                         asp-action="DeleteProduct" data-routerId="${product.id}">
                                     Delete
                                 </button>
-                                <button type="button" class="btn btn-outline-warning EditProduct"
-                                        data-bs-toggle="modal" data-bs-target="#EditProduct"
-                                        data-productID = "${product.id}">
+                                <button type="button" class="btn btn-outline-warning EditProduct"                                     
+                                        data-productid = "${product.id}">
                                     Edit
                                 </button>
                             </div>
@@ -126,7 +170,7 @@ btn.forEach((bt) => {
                 });
                 container.innerHTML = render;
                 var btDeleteProducts = document.querySelectorAll(".delete");
-                var btEdit = document.querySelectorAll(".EditProduct");
+                
                 
                 btDeleteProducts.forEach((bt, index) => {
                     bt.onclick = function (){
@@ -136,22 +180,10 @@ btn.forEach((bt) => {
                     }
                 })
 
-                btEdit.forEach((bt,index) => {
-                    bt.onclick = function (){
-                        var id = bt.getAttribute("data-productID");
-                        console.log(id);
-                        console.log(typeof id);
-                        $.ajax({
-                            url: `/Product/DeleteProduct`,
-                            data: {
-                                id: parseInt(id),
-                            },
-                            success: function (){
-                                window.location.href = "/Product/ListProduct";
-                            }
-                        })
-                    }
-                })
+                var btEdit = document.querySelectorAll(".EditProduct");
+                
+                CallModalEdit(btEdit);
+                
             }
         })
 
@@ -162,18 +194,6 @@ function DeleteProduct(id){
     $.ajax({
         url: '/Product/DeleteProduct',
         type: 'POST',
-        data: {
-            id: parseInt(id),
-        },
-        success: function (){
-            window.location.href = "/Product/ListProduct";
-        }
-    })
-}
-
-function UpdateProduct(){
-    $.ajax({
-        url: `/Product/EditProduct/`,
         data: {
             id: parseInt(id),
         },
